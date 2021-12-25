@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
-            <h1 style="display:inline-block">Genres</h1>
+            <h1 style="display:inline-block">boards</h1>
             <a asp-action="create" style="float:right" class="btn btn-primary">Create new</a>
         </div>
         <table class="table">
@@ -29,7 +29,7 @@
                     <td>@item.Desc</td>
                     <td>
                         <a asp-action="edit" asp-route-id="@item.Id" class="btn btn-warning">Edit</a>
-                        <a asp-action="edit" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                        <a asp-action="delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
                 }

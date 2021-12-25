@@ -34,11 +34,11 @@ namespace EduhomeTemplate.Areas.Manage.Controllers
         }
         public IActionResult Edit(int id)
         {
-            Board genre = _datacontext.Boards.FirstOrDefault(x => x.Id == id);
+            Board board = _datacontext.Boards.FirstOrDefault(x => x.Id == id);
 
-            if (genre == null) return NotFound();
+            if (board == null) return NotFound();
 
-            return View(genre);
+            return View(board);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -59,6 +59,23 @@ namespace EduhomeTemplate.Areas.Manage.Controllers
 
             _datacontext.SaveChanges();
 
+            return RedirectToAction("index", "boardnotice");
+        }
+        public IActionResult Delete(int id)
+        {
+            Board board = _datacontext.Boards.FirstOrDefault(x => x.Id == id);
+            if (board == null) return NotFound();
+            return View(board);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(Board board)
+        {
+            Board existboard = _datacontext.Boards.FirstOrDefault(x => x.Id == board.Id);
+            if (existboard == null) return NotFound();
+            _datacontext.Boards.Remove(existboard);
+            _datacontext.SaveChanges();
+            
             return RedirectToAction("index", "boardnotice");
         }
     }
