@@ -15,10 +15,11 @@ namespace EduhomeTemplate.Areas.Manage.Controllers
         {
             _datacontext = dataContext;
         }
-        public IActionResult Index()
+        public IActionResult Index(int page)
         {
-            List<Board> notices = _datacontext.Boards.ToList();
-            return View(notices);
+            ViewBag.TotalPage = (int)Math.Ceiling(Convert.ToDouble(_datacontext.Boards.Count()) / 4);
+            ViewBag.SelectedPage = page;
+            return View(_datacontext.Boards.Skip((page - 1) * 4).Take(8).ToList());
         }
         public IActionResult Create()
         {
@@ -75,7 +76,6 @@ namespace EduhomeTemplate.Areas.Manage.Controllers
             if (existboard == null) return NotFound();
             _datacontext.Boards.Remove(existboard);
             _datacontext.SaveChanges();
-            
             return RedirectToAction("index", "boardnotice");
         }
     }

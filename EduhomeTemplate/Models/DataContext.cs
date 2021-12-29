@@ -11,9 +11,8 @@ namespace EduhomeTemplate.Models
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
         }
-
         public DbSet<Course> Courses { get; set; }
         public DbSet<Board> Boards { get; set; }
-
+        public DbSet<Teacher> Teachers { get; set; } 
     }
 }

@@ -60,6 +60,7 @@
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" asp-action="index" asp-controller="boardnotice">BoardNotice</a>
+                        <a class="collapse-item" asp-action="index" asp-controller="teacher">Teacher</a>
                     </div>
                 </div>
             </li>
@@ -340,6 +341,7 @@
 
     <!-- Bootstrap core JavaScript-->
     <script src="~/manage/vendor/jquery/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="~/manage/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
@@ -349,12 +351,17 @@
     <script src="~/manage/js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="~/manage/vendor/chart.js/Chart.min.js"></script>
-
+    <!--<script src="~/manage/vendor/chart.js/Chart.min.js"></script>-->
     <!-- Page level custom scripts -->
-    <script src="~/manage/js/demo/chart-area-demo.js"></script>
-    <script src="~/manage/js/demo/chart-pie-demo.js"></script>
-
+    <!--<script src="~/manage/js/demo/chart-area-demo.js"></script>
+    <script src="~/manage/js/demo/chart-pie-demo.js"></script>-->
+    <script>
+        $(function () {
+            $(document).on("click", ".img-box-remove", function () {
+                $(".img-box").remove()
+            })
+        })
+    </script>
 </body>
 
 </html>
